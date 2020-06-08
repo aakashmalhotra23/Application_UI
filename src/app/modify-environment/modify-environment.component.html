@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<body>
+
+  <nav class="navbar navbar-expand navbar-dark bg-dark" >
+    <div class="navbar-nav">
+        <a class="nav-item nav-link" routerLink="/dashboard" >Dashboard</a>
+        <a class="nav-item nav-link" routerLink="/status" >Server Status</a>
+        <a class="nav-item nav-link" routerLink="/modify">Modify</a>
+        <a class="nav-item nav-link" routerLink="/servermaintenance">Server maintainance</a>
+        <a class="nav-item nav-link" routerLink="/login" >Logout</a>
+    </div>
+</nav>
+<br> <br>
+    <div class="container" ng-app="">
+        <table class="table table-stripe">
+            <thead>
+                <th> sno </th>
+                <th> server </th>
+                <th> server_instance </th>
+                <th> environment </th>
+                <th> port </th>
+                <th> status </th>
+                <th> DownTime </th>
+                <th> remarks </th>
+                <th> Operations </th>
+            </thead>
+        
+            <tbody>
+                <tr *ngFor = "let serverDb of servers">
+                    <td> {{serverDb.sno}}</td>
+                    <td> {{serverDb.server}}</td>
+                    <td> {{serverDb.server_instance}}</td>
+                    <td> {{serverDb.environment}}</td>
+                    <td> {{serverDb.port}}</td>
+                    <td> {{serverDb.status}}</td>
+                    <td> {{serverDb.date}}</td>
+                    <td> {{serverDb.remarks}}</td>
+                    <td> <button class="btn btn-danger" (click) = "deleteServer(serverDb.sno)"> Delete </button>
+                      <button class="btn btn-primary" (click)="edit(serverDb)">  Edit </button></td>
+                      
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

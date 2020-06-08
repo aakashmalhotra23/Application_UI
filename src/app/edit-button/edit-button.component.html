@@ -1,0 +1,102 @@
+
+<nav class="navbar navbar-expand navbar-dark bg-dark" >
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/dashboard" >Dashboard</a>
+      <a class="nav-item nav-link" routerLink="/status" >Server Status</a>
+      <a class="nav-item nav-link" routerLink="/modify">Modify</a>
+      <a class="nav-item nav-link" routerLink="/servermaintenance">Server maintainance</a>
+      <a class="nav-item nav-link" routerLink="/login" >Logout</a>
+  </div>
+  </nav>
+  <br>
+  
+  <div class="card-container" ng-app="">
+    <div class="card card-small" >
+        <svg class="material-icons"  width="44" height="44" ></svg>
+  
+      <span>S.No</span>
+      <span>
+      <input type="text" name="sno" width="20px" [(ngModel)]="serverDb.sno">
+      </span>
+    </div>
+  
+  
+      <div class="card card-small" >
+          <svg class="material-icons"  width="44" height="44" ></svg>
+  
+        <span>server</span>
+        <span>
+        <input type="text" name="server" width="20px" [(ngModel)]="serverDb.server">
+        </span>
+      </div>
+  
+  
+    
+      <div class="card card-small" >
+          <svg class="material-icons"  width="44" height="44" ></svg>
+  
+        <span>Server Instance</span>
+        <span>
+        <input type="text" width="20px" name =" server_instance" [(ngModel)]="serverDb.server_instance">
+        </span>
+      </div>
+  
+    
+    <div class="card card-small" >
+          <svg class="material-icons"  width="44" height="44" ></svg>
+  
+        <span>Environment</span>
+        <span>
+        <input type="text" width="20px" name="environment" [(ngModel)]=serverDb.environment>  
+        </span>
+      </div>
+  
+    
+  
+      <div class="card card-small" >
+          <svg class="material-icons"  width="44" height="44" ></svg>
+  
+        <span>Port</span>
+        <span>
+        <input type="number" width="20px" name= "port" [(ngModel)]="serverDb.port">
+        </span>
+      </div>
+  
+  
+      <div class="card card-small" >
+          <svg class="material-icons"  width="44" height="44" ></svg>
+  
+        <span>Down time</span>
+        <span>
+        <input type="text" width="20px" name="downtime" [(ngModel)]="serverDb.date">
+        </span>
+      </div>
+  
+    
+    
+      <div class="card card-small" >
+          <svg class="material-icons"  width="44" height="44" ></svg>
+  
+        <span>Status</span>
+        <span>
+        <input type="text" width="20px" name="status" [(ngModel)]="serverDb.status">
+        </span>
+      </div>
+      <br>
+    
+       <div class="card card-small" >
+      <form>
+            <textarea id="remarks" name="remarks" rows="4" cols="50" [(ngModel)]="serverDb.remarks" >
+            write your remarks here
+            </textarea>
+      </form>
+          </div>
+  
+        <br>
+  
+    <div class="but"> 
+    <span> <button type="submit" (click)="updateServer(serverDb)"> Save </button></span>
+    
+    <span> <button type="btn.btn-primary" (click)="goBack()"> Back </button></span>
+    </div>
+  </div>

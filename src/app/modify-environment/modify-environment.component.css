@@ -1,0 +1,27 @@
+div.but{
+    background:white;
+    color:blue;
+    text-align:center;
+}
+
+ div.conts {
+    position: absolute;
+    padding : 5px;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    background-color: #1976d2;
+    color: white;
+    font-weight: 600;
+  }
+
+  div.card-container{
+     
+      padding:3px;
+      align-items: center;
+      text-align:center;
+
+  }
