@@ -11,7 +11,7 @@ import { TicketDetails} from '../TicketLayout/ticketdetails';
   providedIn: 'root'
 })
 export class ServerDbService {
-  
+  private baseUrlForUser:string = 'http://localhost:8080';  
   private baseUrlForServer:string='http://localhost:8080/api';
   private baseUrlForTicket:string='http://localhost:8080/ticket';
   private headers = new Headers({'Content-Type':'application/json'});
@@ -44,11 +44,13 @@ export class ServerDbService {
 
   //To fetch Ticket Details & log ticket
 
-    getDetails(EmpId:String){
+  getDetails(EmpId:String){
     return this._http.get(this.baseUrlForTicket+'/get/'+EmpId, this.options).map((response)=>response.json()).catch(this.errorHandler);
   }
 
-
+  getUserDetails(EmpId:String){
+    return this._http.get(this.baseUrlForUser+'/get/'+EmpId, this.options).map((response)=>response.json()).catch(this.errorHandler);
+  }
    Logticket(ticket=this.ticket,EmpId:String){
     return this._http.post(this.baseUrlForTicket+'/raise/'+EmpId, JSON.stringify(ticket), this.options).map((response)=>response.json()).catch(this.errorHandler);
   } 

@@ -1,4 +1,4 @@
-import { LoginDetails } from './loginDetails';
+import { LoginDetails } from "./LoginDetails";
 
 export class TicketDetails {
     ticketId : String;
@@ -6,5 +6,4 @@ export class TicketDetails {
     branch : String;
     description : String;
     issuedAt : Date;
-    user : LoginDetails;
 }

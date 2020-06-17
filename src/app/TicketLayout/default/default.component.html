@@ -47,12 +47,12 @@
 
     <div class="form-group" >
          <b ><i class="fa fa-mobile fa-3x"></i> &nbsp;&nbsp;&nbsp;&nbsp;</b> 
-        <input type="text"  id="mobileNo" value="'{{TicketDetails.mobile}}'">
+        <input type="text"  id="mobileNo" value="'{{this.UserDetails.phone}}'">
     </div>
 
     <div class="form-groupss" >
          <b ><i class="fa fa-envelope fa-3x"></i> &nbsp;&nbsp;&nbsp;&nbsp;</b> 
-        <span>emailidawbddws@ {{Ticket.emailId}} </span>
+        <span>Mail id: {{this.UserDetails.email}} </span>
     </div>
     
     <div class="textarea">
@@ -82,12 +82,11 @@
 
      <div class="card" >
         
-        <div class="cont" >
-            <b> {{user}}   </b> 
-            <p> {{TicketDetails.ticketId}}  </p> 
-            <p> {{TicketDetails.category}}  </p>
-            <p> {{TicketDetails.user.emailId}}  </p>
-            <p> {{TicketDetails.user.mobile}}  </p>
+        <div class="cont" > 
+            <span> <b>Ticket id:</b> {{TicketDetails.ticketId}}  </span><br>
+            <span> <b>Category:</b> {{TicketDetails.category}}  </span><br>
+            <span> <b>Branch:</b> {{TicketDetails.branch}}  </span><br>
+            <span> <b>Issued at:</b> {{TicketDetails.issuedAt}}  </span><br>
          </div>
      </div> <br>
     
