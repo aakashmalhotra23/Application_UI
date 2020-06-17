@@ -6,9 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import {RouterModule, Routes} from '@angular/router';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-
-import { Server } from 'http';
 import {HttpModule} from '@angular/http';
+
 import { RestapiService } from './restapi.service';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
@@ -19,6 +18,13 @@ import { ModifyEnvironmentComponent } from './modify-environment/modify-environm
 import { ServerDbService } from './shared_service/server-db.service';
 import { GlobalErrorHandler } from './GlobalErrorHandler';
 import { EditButtonComponent } from './edit-button/edit-button.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DefaultComponent } from './TicketLayout/default/default.component';
+
+
+import {MatSidenavModule} from '@angular/material/sidenav';
+import { HeaderComponent } from './TicketLayout/header/header.component';
+
 
 @NgModule({
   declarations: [
@@ -28,14 +34,18 @@ import { EditButtonComponent } from './edit-button/edit-button.component';
     StatusComponent,
     ServerMaintenanceComponent,
     ModifyEnvironmentComponent,
-    EditButtonComponent
+    EditButtonComponent,
+    DefaultComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSidenavModule
     
   ],
   providers: [RestapiService,ServerDbService,{provide: ErrorHandler, useClass: GlobalErrorHandler}],

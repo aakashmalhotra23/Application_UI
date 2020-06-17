@@ -1,0 +1,100 @@
+<div class ="container">
+
+
+
+
+<div>
+<nav class="navbar navbar-expand-sm  navbar-light fixed-top justify-content-end">
+  <span style ="color:white;">
+  {{user}} &nbsp; </span> 
+  &nbsp;&nbsp;&nbsp;&nbsp;
+</nav>    
+</div> <br><br>
+
+<!--[Ticket.EmpName]="EmpName"-->
+
+
+
+ <div class="headline">
+    <h4>Ticket Register</h4><br>
+ </div><br>
+
+<div class =" conts">
+<br><br>
+    <div class="fixed" > 
+    <b> <i class="fa fa-building fa-3x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</b>
+     <select name="Branch" class="default-select mb-3" [(ngModel)]="TicketInstances.branch">
+        <option selected Style="padding : 30px;">Select Branch</option>
+         <option value="Whitefield">Whitefield (Banglore)</option>
+         <option value="Think Campus">Think Campus (Banglore)</option>
+         <option value="Chennai">Chennai</option>
+         <option value="Bhubneshwar">Bhubneshwar</option>
+     </select>
+    </div>
+
+    <div class="fixedss" > 
+    <b> <i class="fa fa-retweet  fa-3x"></i>&nbsp;&nbsp;&nbsp;&nbsp;</b>
+     <select name="Requests" class="default-select mb-3" [(ngModel)]="TicketInstances.category">
+        <option selected Style="padding : 30px;">Request Type    </option>
+         <option value="Requesting for Access">Requesting For Access</option>
+         <option value="Requesting For Error">Requesting For Error</option>
+         <option value="Requesting For Null">Requesting For Null</option>
+     </select>
+    </div>
+</div>
+
+  <div class =" linetwo">
+
+    <div class="form-group" >
+         <b ><i class="fa fa-mobile fa-3x"></i> &nbsp;&nbsp;&nbsp;&nbsp;</b> 
+        <input type="text"  id="mobileNo" value="'{{TicketDetails.mobile}}'">
+    </div>
+
+    <div class="form-groupss" >
+         <b ><i class="fa fa-envelope fa-3x"></i> &nbsp;&nbsp;&nbsp;&nbsp;</b> 
+        <span>emailidawbddws@ {{Ticket.emailId}} </span>
+    </div>
+    
+    <div class="textarea">
+        
+        <textarea class="form-control "  id="Description" rows="7" cols="15" [(ngModel)]="TicketInstances.description">write your Description here</textarea>
+    </div>
+
+    <div class="submitbutton">
+
+        <button class="btn btn-primary" (click)="lognewticket()" >
+          <span class="spinner-border spinner-border-sm"></span>
+          Submit
+        </button>
+
+    </div>
+
+  </div>
+
+
+
+
+<div class="sidenav"  ><br> <br> <!-- for ticket history-->
+
+ <h5> Ticket History </h5>
+
+   <div *ngFor="let TicketDetails of Tickets">
+
+     <div class="card" >
+        
+        <div class="cont" >
+            <b> {{user}}   </b> 
+            <p> {{TicketDetails.ticketId}}  </p> 
+            <p> {{TicketDetails.category}}  </p>
+            <p> {{TicketDetails.user.emailId}}  </p>
+            <p> {{TicketDetails.user.mobile}}  </p>
+         </div>
+     </div> <br>
+    
+   <div>
+
+</div>
+</div>
+
+
+

@@ -22,6 +22,8 @@ export class EditButtonComponent implements OnInit {
   updateServer(server=this.serverDb){
     this._serverDbService.updateServer(server).subscribe((data:any[])=>{
       console.log(data);
+      alert("Saved succesfully");
+      window.location.reload();
     },(error)=>{
       console.log(error);
     });

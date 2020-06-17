@@ -27,6 +27,7 @@ export class ServerMaintenanceComponent implements OnInit {
     console.log('Inside addServer() setting of data in service is done');
     this._serverDbService.createServer(this.serverDb).subscribe((data)=>{
       console.log(data);
+      alert("Saved Successfully");
     },(error)=>{
       console.log(error);
     });

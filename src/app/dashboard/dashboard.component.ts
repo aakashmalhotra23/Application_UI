@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { RestapiService } from '../restapi.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor() { }
+  user: String ;
+  constructor(private service: RestapiService) { }
 
   ngOnInit() {
+    this.user = this.service.CurrentUser;
   }
 
 }

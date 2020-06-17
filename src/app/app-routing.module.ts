@@ -6,6 +6,8 @@ import { StatusComponent } from './server-status/status.component';
 import { ServerMaintenanceComponent } from './server-maintenance/server-maintenance.component';
 import { ModifyEnvironmentComponent } from './modify-environment/modify-environment.component';
 import { EditButtonComponent } from './edit-button/edit-button.component';
+import { DefaultComponent } from './TicketLayout/default/default.component';
+
 
 const routes: Routes = [
   {path:"",redirectTo:"login",pathMatch:"full"},
@@ -14,8 +16,8 @@ const routes: Routes = [
   {path:"status",component:StatusComponent},
   {path:"servermaintenance",component:ServerMaintenanceComponent},
   {path:"modify",component:ModifyEnvironmentComponent},
-  {path:"edit",component:EditButtonComponent}
-
+  {path:"edit",component:EditButtonComponent},
+  {path:"default",component:DefaultComponent}
 ];
 
 @NgModule({
