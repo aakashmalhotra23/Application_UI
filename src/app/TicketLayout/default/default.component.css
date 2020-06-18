@@ -1,4 +1,3 @@
-
 .sidenav {
   height: 100%;
   width:270px;
@@ -9,12 +8,12 @@
   background-color: lightgrey; 
   overflow-x: hidden;
   padding-top: 20px;
-  border : 2px solid blue;
+  border : 2px solid grey;
 }
 
 .navbar {
   padding: 14px;
-  background-color: indigo;
+  background-color: #33adff;
 }
 
 
@@ -47,6 +46,7 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   width: 95%;
+  padding:1px;
 }
 
 .card:hover {
@@ -60,7 +60,7 @@
 
 .container{
   width:100%;
-  height:100%;
+  height:90%;
 }
 
 
@@ -120,4 +120,11 @@ position: absolute;
   top:620px;
   right: 10px;
   width: 550px;
+}
+
+.backroundimg{
+  background: url("https://images.assetsdelivery.com/compings_v2/9peaks/9peaks1409/9peaks140900049.jpg")no-repeat center center;
+  background-size: cover;
+   height: 115vh !important;
+   
 }

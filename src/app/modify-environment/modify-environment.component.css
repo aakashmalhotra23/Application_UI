@@ -25,3 +25,16 @@ div.but{
       text-align:center;
 
   }
+
+  .backroundimg{
+    background: url("https://images.assetsdelivery.com/compings_v2/9peaks/9peaks1409/9peaks140900049.jpg")no-repeat center center;
+    background-size: cover;
+     height: 100vh !important;
+     
+    }
+
+    .navbar {
+        padding: 14px;
+        background-color: #33adff;
+        
+        }

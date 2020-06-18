@@ -22,6 +22,7 @@ export class ServerDbService {
   constructor(private _http:Http) { }
 
   getServers(){
+    console.log(this.options);
     return this._http.get(this.baseUrlForServer+'/servers', this.options).map((response)=>response.json()).catch(this.errorHandler);
   }
 

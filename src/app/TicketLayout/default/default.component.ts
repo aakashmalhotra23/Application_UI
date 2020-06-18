@@ -3,6 +3,7 @@ import { TicketDetails} from '../ticketdetails';
 import { ServerDbService } from '../../shared_service/server-db.service';
 import { RestapiService } from '../../restapi.service';
 import { LoginDetails } from '../LoginDetails';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-default',
@@ -16,18 +17,33 @@ export class DefaultComponent implements OnInit {
   public user : String;
   public userFromTicekt : LoginDetails;
   public UserDetails : any;
-
+  public sessionValue : string;
+  
+  form = new FormGroup({
+    Branch: new FormControl('', Validators.required),
+    mob: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    Requests: new FormControl('', Validators.required),
+    description: new FormControl('', Validators.required)
+  });
+  get f(){
+    return this.form.controls;
+  }
+  submit(){
+    console.log(this.form.value);
+  }
+  
   constructor(private ticketservices:ServerDbService,private restservices:RestapiService) {
-    this.user = this.restservices.CurrentUser;
+    this.user = sessionStorage.getItem("username");
 
    }
 
   ngOnInit():void { 
-    this.ticketservices.getDetails(this.user).subscribe((Tickets)=>{
+    this.sessionValue = sessionStorage.getItem("username");
+    this.ticketservices.getDetails(this.sessionValue).subscribe((Tickets)=>{
       console.log(Tickets);
       this.Tickets = Tickets;
     
-      this.ticketservices.getUserDetails(this.user).subscribe((UserDetails) => {
+      this.ticketservices.getUserDetails(this.sessionValue).subscribe((UserDetails) => {
         console.log(UserDetails);
         this.UserDetails = UserDetails;
         console.log(this.UserDetails.phone);
@@ -46,12 +62,12 @@ export class DefaultComponent implements OnInit {
     this.ticketservices.ticketinstance=this.TicketInstances;
     
     console.log('Inside ticketinstance setting of data in service is done');
-    this.ticketservices.Logticket(this.TicketInstances,this.user).subscribe((data)=>{
+    this.ticketservices.Logticket(this.TicketInstances,this.sessionValue).subscribe((data)=>{
       console.log(data);
       alert("Ticket logged Successfully");
     },(error)=>{
       console.log(error);
     });
   }
-
+  
 }

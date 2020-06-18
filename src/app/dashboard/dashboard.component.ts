@@ -12,7 +12,10 @@ export class DashboardComponent implements OnInit {
   constructor(private service: RestapiService) { }
 
   ngOnInit() {
-    this.user = this.service.CurrentUser;
+    this.user = sessionStorage.getItem("username");
   }
 
+  Logout(){
+    this.service.logout();
+  }
 }

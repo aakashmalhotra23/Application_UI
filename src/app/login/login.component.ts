@@ -11,18 +11,29 @@ export class LoginComponent implements OnInit {
 
   username: string;
   password: string;
-  message: any
+  public message: any;
+  
 
   constructor(private service: RestapiService,private router:Router) { }
 
   ngOnInit() {
+  
   }
 
   Login() {
-    let resp = this.service.login(this.username, this.password);
-    resp.subscribe(data => {
+    this.service.login(this.username, this.password).subscribe((data) => {
       this.message = data;
-     this.router.navigate(["/dashboard"])
+      console.log(this.message.response);
+      if(this.message.response === "Successful"){
+        sessionStorage.setItem("username",this.username);
+        this.router.navigate(["/dashboard"])
+      }else{
+        console.log("wrong credentials");
+      }
+    },
+    (error)=>{
+      alert("Authorisaion Failed/Wrong Credentials: 401");
+      console.log(error);
     });
   }
 }

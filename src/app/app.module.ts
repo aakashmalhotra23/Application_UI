@@ -10,7 +10,7 @@ import {HttpModule} from '@angular/http';
 
 import { RestapiService } from './restapi.service';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { StatusComponent } from './server-status/status.component';
 import { ServerMaintenanceComponent } from './server-maintenance/server-maintenance.component';
@@ -25,6 +25,7 @@ import { DefaultComponent } from './TicketLayout/default/default.component';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { HeaderComponent } from './TicketLayout/header/header.component';
 
+//import {MatSidenavModule} from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { HeaderComponent } from './TicketLayout/header/header.component';
     HttpModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    ReactiveFormsModule
     
   ],
   providers: [RestapiService,ServerDbService,{provide: ErrorHandler, useClass: GlobalErrorHandler}],

@@ -25,3 +25,22 @@ div.but{
       text-align:center;
 
   }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 95%;
+    padding:1px;
+  }
+
+  .navbar {
+    padding: 14px;
+    background-color: #33adff;
+    
+    }
+
+  .backroundimg{
+    background: url("https://images.assetsdelivery.com/compings_v2/9peaks/9peaks1409/9peaks140900049.jpg")no-repeat center center;
+    background-size: cover;
+     height: 100vh !important;
+  }

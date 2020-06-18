@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServerDb } from '../server-db';
 import { ServerDbService } from '../shared_service/server-db.service';
+import { RestapiService } from '../restapi.service';
 
 @Component({
   selector: 'app-status',
@@ -12,7 +13,7 @@ export class StatusComponent implements OnInit {
   public servers:any;
   public server:ServerDb;
   public sno:number;
-  constructor(private _serverDbService:ServerDbService) { }
+  constructor(private _serverDbService:ServerDbService,private service: RestapiService) { }
 
   ngOnInit():void {
     this._serverDbService.getServers().subscribe((servers)=>{
@@ -21,6 +22,10 @@ export class StatusComponent implements OnInit {
     },(error)=>{
       console.log(error);
     });
+  }
+
+  Logout(){
+    this.service.logout();
   }
   
 }

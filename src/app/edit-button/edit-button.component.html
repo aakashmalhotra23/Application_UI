@@ -1,102 +1,153 @@
-
-<nav class="navbar navbar-expand navbar-dark bg-dark" >
-    <div class="navbar-nav">
-      <a class="nav-item nav-link" routerLink="/dashboard" >Dashboard</a>
-      <a class="nav-item nav-link" routerLink="/status" >Server Status</a>
+<nav class="navbar navbar-expand navbar-dark bg-dark">
+  <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="/dashboard">Dashboard</a>
+      <a class="nav-item nav-link" routerLink="/status">Server Status</a>
       <a class="nav-item nav-link" routerLink="/modify">Modify</a>
       <a class="nav-item nav-link" routerLink="/servermaintenance">Server maintainance</a>
-      <a class="nav-item nav-link" routerLink="/login" >Logout</a>
+      <a class="nav-item nav-link" routerLink="/login" (click)="Logout()">Logout</a>
   </div>
-  </nav>
-  <br>
-  
-  <div class="card-container" ng-app="">
-    <div class="card card-small" >
-        <svg class="material-icons"  width="44" height="44" ></svg>
-  
+</nav>
+<br>
+
+<div class="card-container" ng-app="">
+  <div class="card card-small">
+      <svg class="material-icons" width="44" height="44"></svg>
+
       <span>S.No</span>
       <span>
-      <input type="text" name="sno" width="20px" [(ngModel)]="serverDb.sno">
-      </span>
-    </div>
-  
-  
-      <div class="card card-small" >
-          <svg class="material-icons"  width="44" height="44" ></svg>
-  
-        <span>server</span>
-        <span>
-        <input type="text" name="server" width="20px" [(ngModel)]="serverDb.server">
-        </span>
-      </div>
-  
-  
-    
-      <div class="card card-small" >
-          <svg class="material-icons"  width="44" height="44" ></svg>
-  
-        <span>Server Instance</span>
-        <span>
-        <input type="text" width="20px" name =" server_instance" [(ngModel)]="serverDb.server_instance">
-        </span>
-      </div>
-  
-    
-    <div class="card card-small" >
-          <svg class="material-icons"  width="44" height="44" ></svg>
-  
-        <span>Environment</span>
-        <span>
-        <input type="text" width="20px" name="environment" [(ngModel)]=serverDb.environment>  
-        </span>
-      </div>
-  
-    
-  
-      <div class="card card-small" >
-          <svg class="material-icons"  width="44" height="44" ></svg>
-  
-        <span>Port</span>
-        <span>
-        <input type="number" width="20px" name= "port" [(ngModel)]="serverDb.port">
-        </span>
-      </div>
-  
-  
-      <div class="card card-small" >
-          <svg class="material-icons"  width="44" height="44" ></svg>
-  
-        <span>Down time</span>
-        <span>
-        <input type="text" width="20px" name="downtime" [(ngModel)]="serverDb.date">
-        </span>
-      </div>
-  
-    
-    
-      <div class="card card-small" >
-          <svg class="material-icons"  width="44" height="44" ></svg>
-  
-        <span>Status</span>
-        <span>
-        <input type="text" width="20px" name="status" [(ngModel)]="serverDb.status">
-        </span>
-      </div>
-      <br>
-    
-       <div class="card card-small" >
-      <form>
-            <textarea id="remarks" name="remarks" rows="4" cols="50" [(ngModel)]="serverDb.remarks" >
-            write your remarks here
-            </textarea>
-      </form>
-          </div>
-  
-        <br>
-  
-    <div class="but"> 
-    <span> <button type="submit" (click)="updateServer(serverDb)"> Save </button></span>
-    
-    <span> <button type="btn.btn-primary" (click)="goBack()"> Back </button></span>
-    </div>
+       <form [formGroup]="form">
+        <div class="form-group">
+  <input type="text" formControlName="sno" width="20px" [(ngModel)]="serverDb.sno">
+  <div *ngIf="f.sno.touched && f.sno.invalid" class="alert alert-danger">
+    <div *ngIf="f.sno.errors.required">sno is required.</div>
+   </div>
+        </div>
+       </form>
+  </span>
   </div>
+
+
+  <div class="card card-small">
+      <svg class="material-icons" width="44" height="44"></svg>
+
+      <span>server</span>
+      <form [formGroup]="form">
+          <div class="form-group">
+              <input type="text" formControlName="server" width="20px" [(ngModel)]="serverDb.server">
+              <div *ngIf="f.server.touched && f.server.invalid" class="alert alert-danger">
+                  <div *ngIf="f.server.errors.required">server is required.</div>
+              </div>
+          </div>
+      </form>
+
+  </div>
+
+
+
+  <div class="card card-small">
+      <svg class="material-icons" width="44" height="44"></svg>
+
+      <span>Server Instance</span>
+      <span>
+          <form [formGroup]="form">
+            <div class="form-group">
+                 <input type="text" width="20px" formControlName ="server_instance" [(ngModel)]="serverDb.server_instance">
+                 <div *ngIf="f.server_instance.touched && f.server_instance.invalid" class="alert alert-danger">
+                 <div *ngIf="f.server_instance.errors.required">server-instance is required.</div>
+                 </div>
+            </div>
+          </form>
+        </span>
+
+  </div>
+
+
+  <div class="card card-small">
+      <svg class="material-icons" width="44" height="44"></svg>
+
+      <span>Environment</span>
+      <span>
+      <form [formGroup]="form">
+        <div class="form-group">
+              <input type="text" width="20px" formControlName="environment" [(ngModel)]="serverDb.environment">
+              <div *ngIf="f.environment.touched  && f.environment.invalid" class="alert alert-danger">
+                <div *ngIf="f.environment.errors.required">enviroment is required.</div>
+              </div>
+        </div>
+        </form>
+        
+    </span>
+  </div>
+
+
+
+
+  <div class="card card-small">
+      <svg class="material-icons" width="44" height="44"></svg>
+
+      <span>Port</span>
+      <span>
+      <form [formGroup]="form">
+        <div class="form-group">
+          <input type="number" width="20px"formControlName= "port" [(ngModel)]="serverDb.port">
+          <div *ngIf="f.port.touched  && f.port.invalid" class="alert alert-danger">
+            <div *ngIf="f.port.errors.required">port is required.</div>
+          </div>
+        </div>
+      </form>
+    </span>
+  </div>
+
+
+  <div class="card card-small">
+      <svg class="material-icons" width="44" height="44"></svg>
+
+      <span>Down time</span>
+      <span>
+    <form [formGroup]="form">
+      <div class="form-group">
+        <input type="datetime-local" width="20px"formControlName="downtime" [(ngModel)]="serverDb.date">
+        <div *ngIf="f.downtime.touched  && f.downtime.invalid" class="alert alert-danger">
+          <div *ngIf="f.downtime.errors.required">downtime is required.</div>
+        </div>
+      </div>
+    </form>
+   </span>
+  </div>
+
+
+
+  <div class="card card-small">
+      <svg class="material-icons" width="44" height="44"></svg>
+
+      <span>Status</span>
+      <span>
+<form [formGroup]="form">
+  <div class="form-group">
+       <input type="text" width="20px" formControlName="status" [(ngModel)]="serverDb.status">
+        <div *ngIf="f.status.touched && f.status.invalid" class="alert alert-danger">
+         <div *ngIf="f.status.errors.required">status is required.</div>
+        </div>
+  </div>
+</form>
+   </span>
+  </div>
+  <br>
+
+
+  <div class="card card-small">
+      <form>
+          <textarea id="remarks" name="remarks" rows="4" cols="50" [(ngModel)]="serverDb.remarks">
+        write your remarks here
+        </textarea>
+      </form>
+  </div>
+
+  <br>
+
+  <div class="but">
+      <span> <button type="submit" class="btn btn-success" (click)="updateServer(serverDb)" (click)="goBack()" [disabled]="!form.valid"> Save </button></span>
+
+      <span> <button class="btn btn-danger" (click)="goBack()"> Back </button></span>
+  </div>
+</div>

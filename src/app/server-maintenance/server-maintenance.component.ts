@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Location } from '@angular/common';
 import { ServerDb } from '../server-db';
 import { ServerDbService } from '../shared_service/server-db.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { RestapiService } from '../restapi.service';
 
 @Component({
   selector: 'app-server-maintenance',
@@ -12,8 +14,25 @@ export class ServerMaintenanceComponent implements OnInit {
   public servers:ServerDb[];
   public serverDb:any={};
   public sno:number;
+  form = new FormGroup({
+    server: new FormControl('', Validators.required ),
+    server_instance: new FormControl('', Validators.required),
+    environment: new FormControl('', Validators.required),
+    port: new FormControl('', Validators.required),
+    downtime: new FormControl('', Validators.required),
+    status: new FormControl('', Validators.required)
+
+  });
+
+  get f(){
+    return this.form.controls;
+    
+  }
+  submit(){
+    console.log(this.form.value);
+  }
   
-  constructor(private location: Location,private _serverDbService:ServerDbService) { }
+  constructor(private location: Location,private _serverDbService:ServerDbService,private service: RestapiService) { }
 
   ngOnInit() {
     
@@ -31,6 +50,10 @@ export class ServerMaintenanceComponent implements OnInit {
     },(error)=>{
       console.log(error);
     });
+   }
+
+   Logout(){
+     this.service.logout();
    }
 }
 

@@ -1,19 +1,18 @@
-<!DOCTYPE html>
-<html>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-<body>
-
-  <nav class="navbar navbar-expand navbar-dark bg-dark" >
+<nav class="navbar navbar-expand navbar-dark " >
     <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/dashboard" >Dashboard</a>
-        <a class="nav-item nav-link" routerLink="/status" >Server Status</a>
-        <a class="nav-item nav-link" routerLink="/modify">Modify</a>
-        <a class="nav-item nav-link" routerLink="/servermaintenance">Server maintainance</a>
-        <a class="nav-item nav-link" routerLink="/login" >Logout</a>
-    </div>
-</nav>
-<br> <br>
-    <div class="container" ng-app="">
+        <img src="../../assets/images/omniStorelogo.jpg" alt="OmniStore logo" style="width:200px; height: 42px;"/> 
+      <a class="nav-item nav-link" style="color:white; " routerLink="/dashboard" >Dashboard</a>
+      <a class="nav-item nav-link" style="color:white; " routerLink="/status" >Server Status</a>
+      <a class="nav-item nav-link" style="color:white; " routerLink="/modify">Modify</a>
+      <a class="nav-item nav-link" style="color:white; " routerLink="/servermaintenance">Server Maintenance</a>
+      <a class="nav-item nav-link" style="color:white; " routerLink="/default">Ticket</a>
+      <a class="nav-item nav-link" style="color:white; " routerLink="/login" (click)="Logout()">Logout</a>
+      <span >{{user}} &nbsp; </span>
+  </div>
+  </nav>
+<div class="backroundimg">
+    <br> <br>
+    <div class="card container" ng-app="">
         <table class="table table-stripe">
             <thead>
                 <th> sno </th>
@@ -44,5 +43,4 @@
             </tbody>
         </table>
     </div>
-</body>
-</html>
+</div>
