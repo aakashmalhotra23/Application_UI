@@ -21,7 +21,7 @@ export class DefaultComponent implements OnInit {
   
   form = new FormGroup({
     Branch: new FormControl('', Validators.required),
-    mob: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    //mob: new FormControl('', [Validators.required, Validators.minLength(10)]),
     Requests: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required)
   });

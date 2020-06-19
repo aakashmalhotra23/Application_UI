@@ -15,7 +15,7 @@
 
   <!--[Ticket.EmpName]="EmpName"-->
 
-
+<form (ngSubmit)="process()">
 
   <div class="headline">
       <h4>Ticket Register</h4><br>
@@ -75,20 +75,19 @@
             <div *ngIf="f.description.errors.required">Description is required.</div>
         </div>
     </form>
-        </div>
+  </div>
 
       <div class="submitbutton">
 
-          <button class="btn btn-primary" (click)="lognewticket()" >
+          <button type="submit" class="btn btn-primary" (click)="lognewticket()" >
             <span class="spinner-border spinner-border-sm"></span>
             Submit
           </button>
-
       </div>
-
     </div>
+  </form>
 
-
+</div>
 
 
   <div class="sidenav"  ><br> <br> <!-- for ticket history-->
